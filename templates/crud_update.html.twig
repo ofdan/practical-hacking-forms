@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="page-header">CRUD - Update Record</h1>
+    <form action="{{ url('crud_update') }}" method="post">
+
+        <input type="hidden" name="record_id" value="{{ id }}">
+        <input type="hidden" name="user_id" value="{{ user_id }}">
+
+        <input type="text" name="title" class="form-control" placeholder="Title" value="{{ title }}">
+        <textarea name="content" class="form-control" required="">{{ content|raw }}</textarea>
+        <br>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+    </form>
+
+    <br>
+    <br>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Store in Database</h3>
+        </div>
+        <div class="panel-body"><h2>{{ title }}</h2>
+            <h3>Record ID: {{ id }}</h3>
+            <h3>User: {{ user }}</h3>
+            <p>{{ content|raw }}</p>
+        </div>
+    </div>
+{% endblock %}
